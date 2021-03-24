@@ -1,0 +1,28 @@
+Create Single Redux File In React Class Components:
+
+1)install Packages:
+      a) npx create-react-app project-name
+      b) npm i react-redux==>react-redux(used For Connect Store With File)
+      c) npm i redux   ===>Redux (Used For Create Store)
+      d) npm i redux-thunk ===>used For Action MiddleWare
+
+2) Create Folder In Src : (Store)
+        In Store Folder Create Two Folder 
+	a)Reducer
+	b)Action
+
+3) Reducer Folder :
+	a) Reducer.js File ==> (used for Create Inital State or Action Get And Provide To Action Folder)
+	b) Store.js File ===>(Used For Create Store)
+
+4) Action Folder:
+	a) Index.js ==> Create Function To Update The State
+
+5) Connect Store To Main Folder/File (Src>Index.js)
+	a) Import Provider To File To Manage The Full Store
+	b) Import Store And Provide To Provider
+
+6) Where To Get Data From Store:
+	a) import Connet from 'react-redux
+	b) create Two Function mapstatetoprops,mapdisptachtoProps
+	c) connect ==> export default connect(mapstatetoprops,mapdisptachtoProps)(Components_Name)

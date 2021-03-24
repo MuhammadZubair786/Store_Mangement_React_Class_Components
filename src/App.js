@@ -1,25 +1,48 @@
 import logo from './logo.svg';
 import './App.css';
+import {connect} from 'react-redux'
+import React from 'react';
+import {set_data} from './Store_Redux/Action/index'
 
-function App() {
-  return (
+class  App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      input : ''
+    }
+
+  }
+
+  set_data = () =>{
+  console.log(this.state.input)
+  this.props.set_data(this.state.input)
+  } 
+  render(){
+    console.log(this.props)
+    return(
+      
+ 
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <input  type="text" placeholder="Enter Data" value = {this.state.input} onChange={(e)=>{this.setState({input : e.target.value })}}/>
+      <button onClick={()=>{this.set_data()}}>
+        click me
+      </button>
+    
     </div>
   );
 }
 
-export default App;
+    
+  }
+  
+
+const mapStateToPr=(state)=>({
+  data : state.data
+})
+
+const mapDi = (dispatch) =>({
+  set_data:(data) => dispatch(set_data(data))
+})
+
+export default connect(mapStateToPr,mapDi) (App);
