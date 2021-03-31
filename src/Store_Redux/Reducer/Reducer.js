@@ -1,22 +1,40 @@
 import React from 'react'
 
 const mystate = {
-    data: ['asad']
+    
+    data: [
+        {
+            name : 'ZUBAIR' ,
+            email : 'mzhassan444@gmail.com'
+        },
+        {
+            name : 'ghous Ahmed',
+            email : 'ghous@gmail.com'
+        }
+    ]
 }
 
 export default (state = mystate, action) => {
-    {
-        switch (action.type) {
+    console.log(action)
+    console.log("Store Data :",state)
+    switch(action.type){
+       
+        case 'setdata':
+            return({
+             ...state,
+             data : [...state.data,action.data]
+            
+         })
 
-            case 'setdata':
-                return {
-                    ...mystate,
-                    data: [...mystate.data,action.payload]
-                }
+         case "DeleteData":
+             return({
+                ...state,
+                data: state.data.filter((item, index) => index !== action.key)
+             })
 
-
-        }
-
+        default :
         return state
+            
+    // }
     }
 }
