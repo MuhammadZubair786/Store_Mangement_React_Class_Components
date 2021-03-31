@@ -50,7 +50,7 @@ class App extends React.Component {
           return(
             <li key={i}>
               <h3>{i}</h3>
-              <h1>Name : {v.email} </h1>
+              <h1>Name : {v.name} </h1>
                <h2>Email : {v.email}</h2>
                <button onClick={()=>this.delete(i)}>Click Me</button>
             </li>
