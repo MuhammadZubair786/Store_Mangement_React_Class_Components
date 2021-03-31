@@ -1,8 +1,12 @@
-const set_data =  (data)=>{
-return(dispatch)=>{
-    dispatch({type:'setdata',data:data})
-    console.log(data)
-}
+const set_data = (data) => {
+    // console.log("Dispatch Data :",data)
+    return (dispatch) => {
+        dispatch({
+            type: 'setdata',
+            payload: data
+        })
+        // console.log("My data ",data)
+    }
 }
 
-export {set_data}
+export { set_data }

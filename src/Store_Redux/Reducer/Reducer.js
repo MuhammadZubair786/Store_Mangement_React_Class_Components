@@ -1,20 +1,22 @@
 import React from 'react'
 
-const my_state={
-    data : [1,2,3,4,5]
+const mystate = {
+    data: ['asad']
 }
 
-export default (state=my_state,action)=>{
-{
-    console.log(action)
-    switch(action.type){
-        case 'setdata':
-            console.log("Yes Call Me")
-            return({
-                ...state,
-                data : action.data
-            })
-    }
+export default (state = mystate, action) => {
+    {
+        switch (action.type) {
 
-    return state
-}}
+            case 'setdata':
+                return {
+                    ...mystate,
+                    data: [...mystate.data,action.payload]
+                }
+
+
+        }
+
+        return state
+    }
+}
